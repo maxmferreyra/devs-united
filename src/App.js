@@ -139,9 +139,9 @@ function App() {
           <img className="logo-devs-login" src="./images/Group 2.svg" alt="" />
           <img className="devs-united-login" src="./images/Group 1.svg" alt="" />
           <div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <button className="login-btn" onClick={loginConGoogle}>
-              <img src="./images/Google Sign in.png" alt="hacer login con google" />
+            <p>Share your ideas <span>PROUDLY!</span></p>
+            <button onClick={loginConGoogle}>
+              <img src="./images/Google-Sign-in.png" alt="hacer login con google" />
             </button>
         </div>
         </div>

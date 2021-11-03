@@ -32,12 +32,16 @@ body {
 
 .logInContainer p {
   text-align: center;
-  padding: 20px;
-  width: 300px;
+  width: 360px;
   height: 100px;
-  font-size: 20px;
+  font-size: 30px;
+  font-weight: 800;
+  margin: 150px 20px 0px 20px;
+  color: #f7444e;
+}
+
+.logInContainer p span {
   color: white;
-  margin: 150px 50px 0px 50px; 
 }
 
 .logInContainer button {
@@ -112,9 +116,11 @@ textarea {
     padding: 10px 0px 0px 20px;
     margin: 10px 30px 0px 30px;
     height: 150px;
-    caret-color: #b9b2ad;
+    caret-color: #ffffff;
+    color: white;
     font-size: 14px;
     border-radius: 8px;
+   background-color: #ff6f7738;
 }
 
 .new-tweet button {
