@@ -40,9 +40,6 @@ body {
   color: #f7444e;
 }
 
-.logInContainer p span {
-  color: white;
-}
 
 .logInContainer button {
   width: 250px;
@@ -56,6 +53,8 @@ body {
   height: 50px;
 }
 
+
+/* pagina principal */
 .app-container {
   background-color: #002c3e;
 }
@@ -136,6 +135,7 @@ textarea {
   cursor: pointer;
   color: white;
   background-color: #f7444e;
+  bottom: 13px;
 }
 
 .input-user {

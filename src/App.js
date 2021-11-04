@@ -10,6 +10,8 @@ function App() {
   const [tweet, setTweet] = useState ({
     tweet: "",
     usuario: "",
+    uid: "",
+    mail: "",
   })
   const [user, setUser] = useState(null);
 
@@ -21,9 +23,10 @@ function App() {
         return {
           tweet: doc.data().tweet,
           usuario: doc.data().usuario,
-          date: doc.data().date,
+          likes: doc.data().likes,
           id: doc.id,
-          likes: doc.data().likes
+          email: doc.data().email,
+          uid: doc.data().uid
         };
       });
       tweets.sort(function(a, b) {
@@ -43,8 +46,10 @@ function App() {
 
  const handleNewTweet = (e) => {
     let nuevoTweet = {
-      ...tweet, 
-      [e.target.name] : e.target.value
+      tweet: e.target.value,
+      usuario: user.displayName,
+      email: user.email,
+      uid: user.uid
     }
     setTweet(nuevoTweet)
  }
@@ -73,10 +78,7 @@ function App() {
     firestore.doc(`tweets/${id}`).delete()
   }
 
-  const fechaFormateada = (fecha) => {
-    new Date(fecha).getUTCDate() 
-  }
- 
+  
   return (
     <div className="app-container">
       {user ? (  
@@ -101,16 +103,7 @@ function App() {
                 onChange={handleNewTweet} 
                 placeholder="Que estas pensando?">                
               </textarea>
-            <div>
-              <input 
-                value={user.displayName}
-                name="usuario" 
-                className="input-user" 
-                type="text" placeholder="Usuario"  
-                onChange={handleNewTweet}
-              />
-              <button onClick={clickHandleSendTweet}>Publicar</button>
-            </div>
+              <button onClick={clickHandleSendTweet}>Publicar</button> 
           </form>
           <div className="list-tweets">
             { tweets && tweets.map((tweet, i ) => {
@@ -118,7 +111,7 @@ function App() {
                 <div className="tweet" key={i}>
                   <div className="info-tweet">
                     <img className="img-user" src={user.photoURL} alt="" />
-                    <p className="userName">@{user.displayName} <span>{ fechaFormateada (tweet.date) }</span></p>
+                    <p className="userName">@{tweet.usuario}</p>
                   </div>
                   <p className="tweet-content">{tweet.tweet}</p>
                   <span className="likes" onClick={ () => clickHandleLike(tweet.id, tweet.likes)}>
@@ -139,7 +132,7 @@ function App() {
           <img className="logo-devs-login" src="./images/Group 2.svg" alt="" />
           <img className="devs-united-login" src="./images/Group 1.svg" alt="" />
           <div>
-            <p>Share your ideas <span>PROUDLY!</span></p>
+            <p>Share your ideas!</p>
             <button onClick={loginConGoogle}>
               <img src="./images/Google-Sign-in.png" alt="hacer login con google" />
             </button>
