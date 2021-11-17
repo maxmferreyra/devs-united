@@ -26,12 +26,11 @@ function App() {
           likes: doc.data().likes,
           id: doc.id,
           email: doc.data().email,
-          uid: doc.data().uid
+          uid: doc.data().uid,
+          imagen: doc.data().imagen
         };
       });
-      tweets.sort(function(a, b) {
-        return b.date - a.date;
-      });
+      
       setTweets(tweets);
     });
 
@@ -49,7 +48,8 @@ function App() {
       tweet: e.target.value,
       usuario: user.displayName,
       email: user.email,
-      uid: user.uid
+      uid: user.uid,
+      imagen: user.photoURL
     }
     setTweet(nuevoTweet)
  }
@@ -58,13 +58,11 @@ function App() {
   const clickHandleSendTweet = (e) => {
     e.preventDefault();
     /* let tweetDate = new Date().getTime() 
-    setTweet({...tweet, date: tweetDate}) */ 
-    firestore.collection("tweets").add(tweet)
-    setTweet({
-      tweet: "",
-      usuario: ""
-    }
-      )
+    setTweet({...tweet, date: tweetDate}) */  
+       firestore.collection("tweets").add(tweet)
+       setTweet({
+         tweet: ""
+       })
   }
 
   const clickHandleLike = (id, likes) => {
@@ -74,7 +72,6 @@ function App() {
   };
 
   const clickHandleDelete = (id) => {
-    console.log(id)
     firestore.doc(`tweets/${id}`).delete()
   }
 
@@ -86,8 +83,10 @@ function App() {
         <header>
           <nav>
             <img className="img-user" src={user.photoURL} alt="" />
+            <div className="logo-app">
             <img className="logo-devs" src="./images/Group 2.svg" alt="" />
             <img className="devs-united" src="./images/Group 1.svg" alt="" />
+            </div>
             <button onClick={logout}>Log out</button>
           </nav>
         </header>
@@ -110,7 +109,7 @@ function App() {
               return (
                 <div className="tweet" key={i}>
                   <div className="info-tweet">
-                    <img className="img-user" src={user.photoURL} alt="" />
+                    <img className="img-user" src={tweet.imagen} alt="" />
                     <p className="userName">@{tweet.usuario}</p>
                   </div>
                   <p className="tweet-content">{tweet.tweet}</p>
@@ -119,8 +118,9 @@ function App() {
                     <span>{tweet.likes ? tweet.likes : 0}</span>
                   </span>
                   <span className="trash" onClick={ () => clickHandleDelete(tweet.id)}>
-                    <img src="./images/trash.png" alt="imagen de residuo"/>
-                  </span>
+                   <img src="./images/delete.png" alt="imagen de residuo"/>
+                  </span> 
+                
                 </div>
               )
             })}    
