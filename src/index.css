@@ -97,7 +97,6 @@ nav button {
   padding: 5px;
   margin-right: 10px;
   cursor: pointer;
- 
 }
 
 .new-tweet {
@@ -202,6 +201,17 @@ textarea {
   height: 30px;
   width: 50px;
   padding: 10px;
+}
+
+.likes button {
+  border: none;
+  background-color: transparent;
+  transition: transform 1s ease-out;
+}
+
+.likes button:active {
+  transform: scale(-0.9);
+  transition: transform 1s ease-out;
 }
 
 .likes img {
