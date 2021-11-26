@@ -135,7 +135,13 @@ function App() {
                     <span>{tweet.likes ? tweet.likes : 0}</span>
                   </span>
                   <span className="trash" onClick={ () => clickHandleDelete(tweet.id)}>
-                   <img src="./images/delete.png" alt="imagen de residuo"/>
+                    {
+                     tweet.uid === user.uid ? 
+                    <img src="./images/delete.png" alt="imagen de residuo"/>
+                    :
+                   ""
+                  }
+                  
                   </span> 
                 
                 </div>
