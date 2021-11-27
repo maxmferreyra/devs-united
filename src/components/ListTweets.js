@@ -3,7 +3,6 @@ import swal from 'sweetalert';
 import { firestore } from '../firestore/firebase';
 
 const ListTweets = (props) => {
-
     const clickHandleLike = (id, likes) => {
         if(!likes) likes = 0;
         firestore.doc(`tweets/${id}`).update({ likes: likes + 1 });

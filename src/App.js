@@ -1,58 +1,32 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
-import { firestore, auth} from './firestore/firebase';
-import LogIn from './components/LogIn'
-import ListTweets from './components/ListTweets';
-import Header from './components/Header'
+
+
+import { Route, Routes } from 'react-router-dom';
+import UserProfile from './components/UserProfile';
+import InitPage from './routes/InitPage';
+import { auth } from './firestore/firebase'
+
 
 function App() {
-  const [ tweets, setTweets ] = useState([])
+
   const [user, setUser] = useState(null);
 
- useEffect(() => {
-    const actualizarTweet = firestore
-    .collection('tweets')
-    .onSnapshot((snapshot) => {
-      const tweets = snapshot.docs.map((doc) => {
-        return {
-          tweet: doc.data().tweet,
-          usuario: doc.data().usuario,
-          likes: doc.data().likes,
-          id: doc.id,
-          email: doc.data().email,
-          uid: doc.data().uid,
-          imagen: doc.data().imagen
-        };
-      }); 
-      setTweets(tweets);
-    });
-
+  useEffect(() => {
     auth.onAuthStateChanged((user) => {
       setUser(user);
       console.log(user);
     })
 
-    return () => actualizarTweet();
   }, [])
-
   return (
     <div className="app-container">
-      {user ? (  
-        <div>
-          <Header
-            user={user}
-          />
-          <ListTweets
-            tweets={tweets}
-            user={user}
-           />   
-      </div>
-      ) : (
-        <LogIn />
-      )}
+      <Routes>
+        <Route path="/" element={<InitPage user={user} />} />
+        <Route path="/profile" element={<UserProfile user={user} />} />
+      </Routes>
     </div>
   );
 }
-
 
 export default App;
