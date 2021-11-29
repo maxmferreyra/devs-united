@@ -9,8 +9,7 @@ function InitPage({ user }) {
         <div>
             {user ? (
                 <HomePage
-
-                    user={user}
+                user={user}
                 />
             ) : (
                 <LogIn />

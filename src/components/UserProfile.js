@@ -1,17 +1,23 @@
 import React from "react";
+import {Link} from 'react-router-dom';
+
+
 
 const UserProfile = ({user}) => {
     return (
-        <div>
+        <div className="container-profile">
             <nav>
-                <button>volver</button>
-                <button>logout</button>
+                <button>Volver</button>
+                <button>Log out</button>
             </nav>
-            <div>
-            <img className="img-user" src={user.photoURL} alt="" />
-                <button>POST</button>
-                <button>FAVORITES</button>
-            </div> 
+            <img className="img-user" src={user.photoURL} alt="" />          
+            <div className="tweets-profile">
+                <Link to="/profile/post"><button>POST</button></Link>
+                <Link to="/profile/favorites"><button>FAVORITES</button></Link>  
+
+            </div>
+            
+                     
         </div>
     )
 }

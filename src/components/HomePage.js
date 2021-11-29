@@ -1,9 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { logout,  firestore} from '../firestore/firebase';
-
-
-
 import ListTweets from './ListTweets';
 import NewTweet from './NewTweet';
 import { Link } from 'react-router-dom';
@@ -36,25 +33,22 @@ const HomePage = ({user}) => {
       }, [])
 
     return (
-        <>
-        
+        <> 
         <header>
             <nav>
-                    <Link to="/profile"> <img className="img-user" src={user.photoURL} alt="" /> </Link>             
-                    <div className="logo-app">
-                        <img className="logo-devs" src="./images/Group 2.svg" alt="" />
-                        <img className="devs-united" src="./images/Group 1.svg" alt="" />
-                    </div>
-                    <button onClick={logout}>Log out</button>   
+                <Link to="/profile"><img className="img-user" src={user.photoURL} alt="" /></Link>             
+                <div className="logo-app">
+                    <img className="logo-devs" src="./images/Group 2.svg" alt="" />
+                    <img className="devs-united" src="./images/Group 1.svg" alt="" />
+                </div>
+                <button onClick={logout}>Log out</button>   
             </nav>
         </header>
-        
             <NewTweet user={user}/>
             <ListTweets 
             user={user}
             tweets={tweets}
              />
-        
         </>
     )
 }

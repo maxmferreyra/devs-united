@@ -66,6 +66,7 @@ header {
 }
 
 nav {
+  margin: 20px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -239,6 +240,38 @@ textarea {
 
 .trash img {
   width: 20px;
+}
+
+.container-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}
+
+.container-profile nav {
+  margin: 20px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container-profile .img-user {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.tweets-profile button {
+  width: 200px;
+  height: 30px;
+  margin: 20px 0px 10px 0px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #f7444d81;
+  color: white;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 900px) {
