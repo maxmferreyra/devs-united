@@ -4,8 +4,10 @@ import { loginConGoogle } from '../firestore/firebase';
 const LogIn = () => {
     return(
         <div className="logInContainer">
-            <img className="logo-devs-login" src="./images/Group 2.svg" alt="" />
-            <img className="devs-united-login" src="./images/Group 1.svg" alt="" />
+            <div>
+                <img className="logo-devs-login" src="./images/Group 2.svg" alt="" />
+                <img className="devs-united-login" src="./images/Group 1.svg" alt="" />
+            </div>
             <div>
                 <p>Share your ideas!</p>
                 <button onClick={loginConGoogle}>

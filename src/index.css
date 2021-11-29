@@ -277,6 +277,18 @@ textarea {
 @media screen and (min-width: 900px) {
   .logInContainer {   
     margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 800px;
+  }
+
+  .logInContainer p {
+    margin: 35px 0px 10px 0px;
+  }
+
+  .logInContainer button {
+    margin-top: 20px;
   }
   
   body {
