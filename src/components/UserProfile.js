@@ -1,10 +1,13 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import {Link, Routes, Route} from 'react-router-dom';
+import Post from './Post';
+import Favorites from './Favorites';
 
 
 
 const UserProfile = ({user}) => {
-    return (
+    
+    return user && ( 
         <div className="container-profile">
             <nav>
                 <button>Volver</button>
@@ -14,12 +17,13 @@ const UserProfile = ({user}) => {
             <div className="tweets-profile">
                 <Link to="/profile/post"><button>POST</button></Link>
                 <Link to="/profile/favorites"><button>FAVORITES</button></Link>  
-
-            </div>
-            
-                     
+            </div> 
+            <Routes>
+                <Route path="/post" element={<Post />}></Route>
+                <Route path="/favorites" element={<Favorites />}></Route>
+            </Routes>    
         </div>
-    )
+        )
 }
 
 export default UserProfile;
