@@ -10,7 +10,7 @@ const UserProfile = ({user}) => {
     return user && ( 
         <div className="container-profile">
             <nav>
-                <button>Volver</button>
+                <Link to="/"><button>Volver</button></Link> 
                 <button>Log out</button>
             </nav>
             <img className="img-user" src={user.photoURL} alt="" />          
