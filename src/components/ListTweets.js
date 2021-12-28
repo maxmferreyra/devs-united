@@ -19,6 +19,7 @@ const ListTweets = (props) => {
         })
         .then((willDelete) => {
           if (willDelete) {
+            firestore.doc(`tweets/${id}`).delete()
             swal("Se elimino correctamente", {
               icon: "success",
             });
@@ -26,7 +27,7 @@ const ListTweets = (props) => {
             swal("Se guardo tu tweet");
           }
         });
-        firestore.doc(`tweets/${id}`).delete()
+        
       }
 
     return (
