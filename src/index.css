@@ -80,7 +80,7 @@ nav img {
 .logo-app {
   width: 200px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 
@@ -312,7 +312,6 @@ textarea {
   nav .img-user {
     height: 100%;
     width: 50px;
-
     margin-left: 100px;
   }
 
@@ -321,11 +320,11 @@ textarea {
   }
 
   .logo-app {
-    width: 400px;
+    width: 400px; 
   }
 
   .devs-united {
-    width: 200px;
+    width: 200px;  
   }
 
   .new-tweet {
