@@ -143,6 +143,12 @@ textarea {
   bottom: 13px;
 }
 
+.new-tweet button:hover {
+  background-color: white;
+  color: #002c3e;
+  font-weight: bold;
+}
+
 .input-user {
   height: 30px;
   margin: 7px 0px 15px 30px;
